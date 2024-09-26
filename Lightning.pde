@@ -1,34 +1,43 @@
 // turn on and off noLoop()'
 
+
+
 int startX = (int)(Math.random()*500);
 int endX = (startX + ((int)(Math.random()*9)));
-int startY = 0;
-int endY = 50;
+int startY = 100;
+int endY = 110;
+
+int mouseCooldown = 100;
 
 void setup() {
   size(500, 500);
   background(32, 49, 82, 255);
-  //cloud();
+  cloud();
   //noLoop();
   frameRate(100);
 }
 
 void draw() {
+  mouseCooldown -= 1;
+  System.out.println(mouseCooldown);
+  
   noStroke();
+  //sky reset
   fill(0, 0, 0, 10);
   rect(0, 0, 500, 500);
+  //lightning
   strokeWeight(8);
   stroke(#FFFFFF, 150);
   line(startX, startY, endX, endY);
   strokeWeight(3);
   stroke(#FFFFFF);
   line(startX, startY, endX, endY);
-  if ((int)(Math.random()*5) == 0) {
+  if ((int)(Math.random()*10) == 0) { //Random chance to create branch
     lightningBranch(startX, startY);
   }
   startX = endX;
   startY = endY;
-  endX += (int)(Math.random()*60-35);
+  endX += (int)(Math.random()*60-30);
   if (endX <= 0) {
     endX += 20;
   } else if (endX >= 500) {
@@ -38,11 +47,16 @@ void draw() {
 }
 
 void mousePressed() {
-  background(32, 49, 82, 255);
-  startX = (int)(Math.random()*500);
-  endX = (startX + ((int)(Math.random()*9)));
-  startY = 0;
-  endY = 50;
+  if(mouseCooldown <= 0) {
+    background(32, 49, 82, 255);
+    startX = (int)(Math.random()*500);
+    endX = (startX + ((int)(Math.random()*9)));
+    startY = 100;
+    endY = 110;
+    mouseCooldown = 50;
+    cloud();
+
+  }
 }
 
 
