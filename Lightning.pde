@@ -3,25 +3,49 @@
  originating from the cloud
  IDEA 2: Draw some stars that follow the path of a curve?*/
 
+int startX = (int)(Math.random()*500);
+int endX = (startX + ((int)(Math.random()*9)));
+int startY = 0;
+int endY = 50;
 
 void setup() {
   size(500, 500);
   background(32, 49, 82, 255);
   //cloud();
   //noLoop();
-  frameRate(20);
+  frameRate(50);
 }
-int timer = 1000;
 
 void draw() {
   noStroke();
   fill(32, 49, 82, 20);
   rect(0, 0, 500, 500);
-  System.out.println(timer);
+  strokeWeight(8);
+  stroke(#FFFFFF, 150);
+  line(startX, startY, endX, endY);
+  strokeWeight(3);
+  stroke(#FFFFFF);
+  line(startX, startY, endX, endY);
+  if ((int)(Math.random()*5) == 0) {
+    lightningBranch(startX, startY);
+  }
+  startX = endX;
+  startY = endY;
+  endX += (int)(Math.random()*60-35);
+  if (endX <= 0) {
+    endX += 20;
+  } else if (endX >= 500) {
+    endX -= 20;
+  }
+  endY += (int)(Math.random()*15+1);
 }
 
 void mousePressed() {
-  lightning();
+  background(32, 49, 82, 255);
+  startX = (int)(Math.random()*500);
+  endX = (startX + ((int)(Math.random()*9)));
+  startY = 0;
+  endY = 50;
 }
 
 
@@ -43,33 +67,6 @@ void cloud() {
     //Front Clouds
     fill(#9B9B9B, 200);
     ellipse(x, (int)(Math.random()*80), 150, 80);
-  }
-}
-
-public void lightning() {
-  int startX = (int)(Math.random()*500);
-  int endX = (startX + ((int)(Math.random()*9)));
-  int startY = 0;
-  int endY = 50;
-  while (endY <= 500) {
-    strokeWeight(8);
-    stroke(#FFFFFF, 150);
-    line(startX, startY, endX, endY);
-    strokeWeight(3);
-    stroke(#FFFFFF);
-    line(startX, startY, endX, endY);
-    if ((int)(Math.random()*5) == 0) {
-      lightningBranch(startX, startY);
-    }
-    startX = endX;
-    startY = endY;
-    endX += (int)(Math.random()*60-35);
-    if (endX <= 0) {
-      endX += 20;
-    } else if (endX >= 500) {
-      endX -= 20;
-    }
-    endY += (int)(Math.random()*15+1);
   }
 }
 
