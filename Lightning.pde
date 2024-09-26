@@ -19,8 +19,7 @@ void setup() {
 
 void draw() {
   mouseCooldown -= 1;
-  System.out.println(mouseCooldown);
-  
+
   noStroke();
   //sky reset
   fill(0, 0, 0, 10);
