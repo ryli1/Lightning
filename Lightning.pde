@@ -1,7 +1,6 @@
 //Lightning
-/*IDEA: Make moving cloud, when mouse is clicked, draw lightning 
- originating from the cloud
- IDEA 2: Draw some stars that follow the path of a curve?*/
+
+//Turn on and off noLoop()
 
 
 void setup(){
@@ -11,13 +10,10 @@ void setup(){
  //noLoop();
  frameRate(50);
 }
-int timer = 1000;
 
 void draw(){
   noStroke();
-  fill(32, 49, 82, 20);
-  rect(0, 0, 500, 500);
-  System.out.println(timer);
+  background(32, 49, 82, 20);
 }
 
 void mousePressed(){
