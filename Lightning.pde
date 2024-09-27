@@ -1,4 +1,4 @@
-// turn on and off noLoop()'
+// turn on and off noLoop()?
 // hi ฅ^•ﻌ•^
 
 
@@ -7,22 +7,21 @@ int endX = (startX + ((int)(Math.random()*9)));
 int startY = 100;
 int endY = 110;
 
-int mouseCooldown = 100;
+int mouseCooldown = 80;
 
 void setup() {
   size(500, 500);
   background(32, 49, 82, 255);
   cloud();
   //noLoop();
-  frameRate(100);
+  frameRate(250);
 }
 
 void draw() {
   mouseCooldown -= 1;
-
   noStroke();
   //sky reset
-  fill(0, 0, 0, 10);
+  fill(0, 0, 0, 5);
   rect(0, 0, 500, 500);
   //lightning
   strokeWeight(8);
@@ -52,13 +51,11 @@ void mousePressed() {
     endX = (startX + ((int)(Math.random()*9)));
     startY = 100;
     endY = 110;
-    mouseCooldown = 50;
+    mouseCooldown = 80;
     cloud();
 
   }
 }
-
-
 
 void cloud() {
   //Randomize cloud placements
