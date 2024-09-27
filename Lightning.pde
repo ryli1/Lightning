@@ -1,5 +1,5 @@
 // turn on and off noLoop()'
-
+// hi ฅ^•ﻌ•^ฅ
 
 
 int startX = (int)(Math.random()*500);
